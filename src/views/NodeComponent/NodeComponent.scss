@@ -3,8 +3,16 @@
 
     .container {
         background-color: rgb(89, 89, 49);
-        height: 50px;
         font-size: 13px;
         border-radius: 6px;
+        max-width: 175px;
+        min-height: 50px;
+        margin: 0 auto;
+    }
+
+    .Ten,
+    .Gia {
+        word-wrap: break-word;
+
     }
 }

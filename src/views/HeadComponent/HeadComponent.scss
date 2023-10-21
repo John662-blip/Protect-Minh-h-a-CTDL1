@@ -1,27 +1,57 @@
-.containera {
-    position: "absolute" !important;
-    right: 18rem;
-    top: 0;
-    width: 60%;
-    height: 60%;
-    transform: translateY(-3px);
+@media screen and (min-width: 636px) {
+    .containera {
+        position: "absolute" !important;
+        right: 18rem;
+        top: 0;
+        width: 60%;
+        height: 60%;
+        transform: translateY(-3px);
 
-    .Head {
-        transform: translateX(50%);
+        .Head {
+            transform: translateX(77%);
 
-        span {
-            border-radius: 50%;
-            background-color: blue;
-            font-size: 17px;
-            display: inline-block;
-            height: 70px;
-            line-height: 70px;
-            transform: translateY(-6px);
-            width: 70px;
+            span {
+                border-radius: 50%;
+                background-color: blue;
+                font-size: 17px;
+                display: inline-block;
+                height: 70px;
+                line-height: 70px;
+                transform: translateY(-6px);
+                width: 70px;
+            }
+
+            .icon-left {
+                font-size: 35px;
+            }
         }
+    }
+}
 
-        .icon-left {
-            font-size: 35px;
+@media screen and (max-width: 636px) {
+    .containera {
+        right: 18rem;
+        top: 0;
+        width: 60%;
+        height: 60%;
+        transform: translateY(0px);
+
+        .Head {
+            transform: translateX(96%);
+
+            span {
+                border-radius: 50%;
+                background-color: blue;
+                font-size: 17px;
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                width: 50px;
+            }
+
+            .icon-left {
+                font-size: 15px;
+            }
         }
     }
 }
