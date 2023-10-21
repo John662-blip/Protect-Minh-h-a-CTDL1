@@ -37,18 +37,11 @@ class MyComponent extends React.Component {
             alert('Không có phần tử để xóa.');
         }
     }
-    changeIndex = (a) => {
-        let { index } = this.state
-        index = index + a;
-        this.setState({
-            index: index
-        })
-    }
     render() {
         return (
             <>
                 <div style={{ margin: "10px 0" }}>
-                    <ChildComponent deleteTail={this.deleteTail} deleteHead={this.deleteHead} addTailNode={this.addTailNode} changeIndex={this.changeIndex} />
+                    <ChildComponent deleteTail={this.deleteTail} deleteHead={this.deleteHead} addTailNode={this.addTailNode} />
                     <ShowComponent NodeInfor={this.state.NodeInfor} index={this.state.index} />
                 </div>
             </>
