@@ -1,48 +1,50 @@
 import React from "react";
 import ChildComponent from "../ChildComponent/ChildComponent";
 import ShowComponent from "../ChildComponent/ShowComponent";
+import LIST from "../Logic/LIST";
+
 class MyComponent extends React.Component {
-    state = {
-        NodeInfor: [],
-        index: -1,
+    constructor(props) {
+        super(props)
+        this.state = {
+            NodeInfor: [],
+        }
+        this.list = new LIST();
     }
 
-    addTailNode = (job) => {
-
+    addTailNode = (Book) => {
+        this.list.AddTail(Book)
         this.setState({
-            NodeInfor: [...this.state.NodeInfor, job],
-            index: this.state.index + 1
+            NodeInfor: this.list.toArr(),
         })
     }
     deleteHead = () => {
-        if (this.state.NodeInfor.length > 0) {
-            const updatedArray = [...this.state.NodeInfor];
-            const a = updatedArray.shift()
-            this.setState({
-                NodeInfor: updatedArray,
-                index: this.state.index - 1
-            });
-        } else {
-            alert('Không có phần tử để xóa.');
+        let bool = this.list.RemoveHead();
+        if (!bool) {
+            alert("Không còn phần tử nào để xóa");
+            return;
         }
+        this.setState({
+            NodeInfor: this.list.toArr(),
+        });
+
     }
     deleteTail = () => {
-        if (this.state.NodeInfor.length > 0) {
-            const updatedArray = this.state.NodeInfor.slice(0, this.state.NodeInfor.length - 1);
-            this.setState({
-                NodeInfor: updatedArray,
-                index: this.state.index - 1
-            });
-        } else {
-            alert('Không có phần tử để xóa.');
+        let bool = this.list.RemoveTail();
+        if (!bool) {
+            alert("Không còn phần tử nào để xóa");
+            return;
         }
+        this.setState({
+            NodeInfor: this.list.toArr(),
+        });
     }
     render() {
         return (
             <>
                 <div style={{ margin: "10px 0" }}>
                     <ChildComponent deleteTail={this.deleteTail} deleteHead={this.deleteHead} addTailNode={this.addTailNode} />
-                    <ShowComponent NodeInfor={this.state.NodeInfor} index={this.state.index} />
+                    <ShowComponent NodeInfor={this.state.NodeInfor} list={this.list} />
                 </div>
             </>
         )

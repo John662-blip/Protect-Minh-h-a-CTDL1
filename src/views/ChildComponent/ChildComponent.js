@@ -1,12 +1,14 @@
 import React from "react";
 import './ChildComponent.scss'
+import BOOK from "../Logic/BOOK";
 class ChildComponent extends React.Component {
-
-    state = {
-        title: "",
-        salary: "",
+    constructor(props) {
+        super(props)
+        this.state = {
+            title: "",
+            salary: "",
+        }
     }
-
     handleChangeTitleJob = (Event) => {
         this.setState({
             title: Event.target.value
@@ -29,11 +31,7 @@ class ChildComponent extends React.Component {
         Event.preventDefault()
         if (!this.state.title || !this.state.salary || !(Number(this.state.salary) == this.state.salary)) console.log("Du lieu vua nhap co van de")
         else {
-            this.props.addTailNode({
-                Ten: this.state.title,
-                Gia: this.state.salary,
-                id: Math.floor(Math.random() * 1000)
-            })
+            this.props.addTailNode(new BOOK(this.state.title, this.state.salary))
             this.setState({
                 title: "",
                 salary: ""

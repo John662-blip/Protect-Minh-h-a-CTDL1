@@ -3,15 +3,17 @@ import NodeComponent from "../NodeComponent/NodeComponent";
 
 class ShowComponent extends React.Component {
     render() {
-        const { NodeInfor, index } = this.props;
+        const { NodeInfor, list } = this.props;
 
         return (
             <>
                 <div className="Node-lists">
-                    {NodeInfor && NodeInfor.map((item, itemIndex) => {
+                    {NodeInfor && NodeInfor.map((item) => {
+
                         return (
                             <div key={item.id}>
-                                <NodeComponent Ten={item.Ten} Gia={item.Gia} stt={itemIndex} index={index} />
+                                <NodeComponent id={item.id} Ten={item.Ten} Gia={item.Gia}
+                                    idHead={list.pHead.value.id} idTail={list.pTail.value.id} />
                             </div>
                         );
                     })}
